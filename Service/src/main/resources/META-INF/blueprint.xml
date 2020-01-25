@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:jpa="http://aries.apache.org/xmlns/jpa/v2.0.0" xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+  <jpa:enable />
+  <tx:enable-annotations />
+  <service ref="personService" interface="com.fuse.hibernate.example.service.PersonService" />
+  <bean id="personService" class="com.fuse.hibernate.example.service.PersonServiceImpl" />
+  <bean
+          class="com.fuse.hibenate.example.app.ExchangeProcessor" id="exchangeProcessor">
+    <property name="personService" ref="personService"/>
+  </bean>
+
+</blueprint>

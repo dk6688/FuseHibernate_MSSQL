@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="osgi-customer-management-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0">
+    <feature name="osgi-customer-management-datasource" version="${project.version}">
+        <config name="org.ops4j.datasource-customer-management">
+            osgi.jdbc.driver.class=com.microsoft.sqlserver.jdbc.SQLServerDriver
+            osgi.jdbc.driver.name=mssql
+            databaseName=customer-management
+
+            url=jdbc:sqlserver://LAPTOP-E0A1RCAN:1433;databaseName=customer-management
+            user=nirmal
+            password=Test123_
+            dataSourceName=customer-management
+            org.apache.karaf.features.configKey = org.ops4j.datasource-customer-management
+        </config>
+        <capability>osgi.service;javax.persistence.EntityManager;objectClass=javax.sql.DataSource;osgi.jndi.service.name=customer-management</capability><!--;effective:=active-->
+    </feature>
+    <feature name="Model" version="${project.version}">
+        <feature>transaction</feature>
+        <feature>jndi</feature>
+        <feature>pax-jdbc-config</feature>
+        <feature>pax-jdbc-h2</feature>
+        <feature>pax-jdbc-mssql</feature>
+        <feature>pax-jdbc-pool-dbcp2</feature>
+        <feature>jdbc</feature>
+        <feature dependency="true">aries-blueprint</feature>
+        <feature version="[2,3)">jpa</feature>
+        <feature version="[5,6)">hibernate</feature>
+        <bundle>mvn:com.fuse.hibernate.example/Model/${project.version}</bundle>
+    </feature>
+    <feature name="Service" version="${project.version}">
+        <feature version="${project.version}">Model</feature>
+        <bundle>mvn:com.fuse.hibernate.example/Service/${project.version}</bundle>
+        <capability>osgi.service;objectClass=javax.persistence.spi.PersistenceProvider;effective:=active;javax.persistence.provider=org.hibernate.jpa.HibernatePersistenceProvider</capability>
+    </feature>
+    <feature name="Application" version="${project.version}">
+        <feature version="${project.version}">Model</feature>
+        <feature version="${project.version}">Service</feature>
+        <bundle>mvn:com.fuse.hibernate.example/Application/${project.version}</bundle>
+    </feature>
+</features>
