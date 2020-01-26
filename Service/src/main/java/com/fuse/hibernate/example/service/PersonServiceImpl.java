@@ -23,6 +23,7 @@ public class PersonServiceImpl implements PersonService
     }
 
     @Override
+    @Transactional(TxType.SUPPORTS)
     public void removePerson(Person person) {
         em.remove(person);
     }
@@ -34,8 +35,8 @@ public class PersonServiceImpl implements PersonService
 
     @Transactional(TxType.SUPPORTS)
     @Override
-    public Person findPerson(String name) {
-        return em.find(Person.class, name);
+    public Person findPerson(BigInteger id) {
+        return em.find(Person.class, id);
     }
 
     @Transactional(TxType.SUPPORTS)
@@ -46,7 +47,8 @@ public class PersonServiceImpl implements PersonService
     }
 
     @Override
+    @Transactional(TxType.MANDATORY)
     public void updateCustomer(Person person) {
-        em.persist(person);
+        em.merge(person);
     }
 }

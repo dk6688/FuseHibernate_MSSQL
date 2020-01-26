@@ -9,7 +9,7 @@ public interface PersonService {
     public Person createPerson (Person person);
     public void removePerson (Person person);
     public void removePersonById (BigInteger id);
-    public Person findPerson (String name);
+    public Person findPerson (BigInteger id);
     public List<Person> findPersons();
     public void updateCustomer (Person person);
 }
