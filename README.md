@@ -30,4 +30,4 @@ To Delete existing person
 curl -X DELETE http://localhost:8181/cxf/crm/personservice/persons/1
 
 You can refer to complete guide of project structure from following blog post 
-https://nirmalbalasooriya.blogspot.com/2020/01/jboss-fuse-74-with-jpa-hibernate-in.html.
+https://nirmalbalasooriya.blogspot.com/2020/01/cxf-rest-api-with-jpa-hibernate-in.html
