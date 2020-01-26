@@ -28,6 +28,13 @@
             <groupId>org.apache.karaf.shell</groupId>
             <artifactId>org.apache.karaf.shell.core</artifactId>
         </dependency>
+
+        <!--        CXF related dependencies -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-client</artifactId>
+            <version>3.0.4.redhat-621084</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
