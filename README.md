@@ -16,4 +16,4 @@ feature:install Service
 feature:install Application
 
 You can refer to complete guide of project structure from following blog post 
-https://nirmalbalasooriya.blogspot.com/2020/01/jboss-fuse-74-with-jpa-hibernate-in.html.
+https://nirmalbalasooriya.blogspot.com/2020/02/external-active-mq-hibernate-with-jboss.html
