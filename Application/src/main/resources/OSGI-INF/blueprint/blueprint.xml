@@ -11,6 +11,9 @@
           class="com.fuse.hibernate.example.app.ExchangeProcessor" id="exchangeProcessor">
     <property name="personService" ref="personService"/>
   </bean>
+  <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+    <property name="brokerURL" value="tcp://localhost:61616"/>
+  </bean>
 
   <camelContext xmlns="http://camel.apache.org/schema/blueprint"
                 id="cbr-example-context" >
@@ -23,6 +26,12 @@
       <process ref="exchangeProcessor"/>
       <log  message="${body}" />
 
+    </route>
+
+    <route id="ACTIVEMQ">
+      <from uri="activemq:queue:inbound.queue"/>
+      <process ref="exchangeProcessor"/>
+      <log  message="${body}" />
     </route>
   </camelContext>
 </blueprint>

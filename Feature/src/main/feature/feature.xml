@@ -6,7 +6,6 @@
             osgi.jdbc.driver.class=com.microsoft.sqlserver.jdbc.SQLServerDriver
             osgi.jdbc.driver.name=mssql
             databaseName=customer-management
-
             url=jdbc:sqlserver://LAPTOP-E0A1RCAN:1433;databaseName=customer-management
             user=nirmal
             password=Test123_
@@ -23,6 +22,15 @@
         <feature>pax-jdbc-mssql</feature>
         <feature>pax-jdbc-pool-dbcp2</feature>
         <feature>jdbc</feature>
+        <feature>pax-jms-pool</feature>
+        <feature>pax-jms-config</feature>
+        <feature>camel-activemq</feature>
+        <feature>artemis-jms-client</feature>
+        <feature>pax-jms-artemis</feature>
+        <feature>camel-blueprint</feature>
+        <feature>camel-jms</feature>
+        <feature>camel-activemq</feature>
+        <feature>pax-jms-activemq</feature>
         <feature dependency="true">aries-blueprint</feature>
         <feature version="[2,3)">jpa</feature>
         <feature version="[5,6)">hibernate</feature>
