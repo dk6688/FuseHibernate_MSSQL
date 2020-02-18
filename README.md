@@ -1,5 +1,5 @@
 # FuseHibernate_MSSQL
-FUSE Hibernate integration with MS SQL
+FUSE ActiveMQ and Hibernate integration with MS SQL
 
 Intention of this project is to guide, setup of basic CRUD operations using Hibernate on FUSE 7.4 version with MSSQL server
 
