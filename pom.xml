@@ -30,13 +30,21 @@
     </properties>
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.jboss.fuse</groupId>
-                <artifactId>jboss-fuse-parent</artifactId>
-                <version>7.1.0.fuse-710023-redhat-00001</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+            <version>3.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.transaction</groupId>
+            <artifactId>javax.transaction-api</artifactId>
+            <version>1.2</version>
+        </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
