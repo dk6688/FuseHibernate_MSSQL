@@ -2,14 +2,26 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
     <persistence-unit name="persons" transaction-type="JTA">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=customer-management)</jta-data-source>
         <class>com.fuse.hibernate.example.model.Person</class>
         <properties>
-            <!--      <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />-->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2012Dialect" />
-            <property name="hibernate.hbm2ddl.auto" value="update" />
-            <property name="hibernate.show_sql" value="true"/>
+<!--             <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+            <property name="javax.persistence.jdbc.user" value="scott"/>
+            <property name="javax.persistence.jdbc.password" value="tiger"/> -->
+<!-- 	        <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+	        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/gateway"/>
+	        <property name="javax.persistence.jdbc.user" value="gateway"/>
+	        <property name="javax.persistence.jdbc.password" value="password"/> -->
+            <!--property name="eclipselink.logging.level" value="FINEST"/-->
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+<!--             <property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL_ddlGeneration.jdbc"/>
+            <property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL_ddlGeneration.jdbc"/> -->
+            <property name="eclipselink.ddl-generation.output-mode" value="both"/>
+            
+			<!-- <property name="eclipselink.ddl-generation.output-mode" value="database"/>  -->
+			<property name="eclipselink.weaving" value="false"/>
         </properties>
     </persistence-unit>
 </persistence>

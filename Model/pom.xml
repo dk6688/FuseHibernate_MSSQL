@@ -35,9 +35,7 @@
                         <Import-Package>
                         javax.xml.bind.*;version="[2,3)",
                             javax.persistence;version="[2,3)",
-                            org.hibernate.proxy,
-                            javassist.util.proxy,
-                            org.hibernate.jpa,
+                            org.eclipse.persistence.*,
                             *
                         </Import-Package>
                     </instructions>

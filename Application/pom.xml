@@ -42,7 +42,12 @@
                 <configuration>
                     <instructions>
                         <Private-Package>com.fuse.hibernate.example.app</Private-Package>
-                        <Import-Package>com.fuse.hibernate.example.model,org.hibernate.jpa, org.apache.karaf.shell*;version="[4,5)", *</Import-Package>
+                        <Import-Package>
+                        	com.fuse.hibernate.example.model,
+                        	org.eclipse.persistence.*,
+                        	org.apache.karaf.shell*;version="[4,5)", 
+                        	*
+                        </Import-Package>
                     </instructions>
                 </configuration>
             </plugin>

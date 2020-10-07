@@ -8,7 +8,7 @@
   <service ref="personService" interface="com.fuse.hibernate.example.service.PersonService" />
   <bean id="personService" class="com.fuse.hibernate.example.service.PersonServiceImpl" />
   <bean
-          class="com.fuse.hibenate.example.app.ExchangeProcessor" id="exchangeProcessor">
+          class="com.fuse.hibernate.example.app.ExchangeProcessor" id="exchangeProcessor">
     <property name="personService" ref="personService"/>
   </bean>
 

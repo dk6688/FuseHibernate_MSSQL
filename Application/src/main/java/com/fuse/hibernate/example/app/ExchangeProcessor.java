@@ -24,6 +24,8 @@ public class ExchangeProcessor implements Processor {
 
         LOG.info("INSIDE PROCESS:##:"+ exchange.getIn().getBody(Person.class));
         Person p =exchange.getIn().getBody(Person.class);
+        String str = (String)exchange.getIn().getBody();
+        p = new Person("Deepak", "Delhi", "India");
         personService.createPerson(p);
         List<Person> list=personService.findPersons();
         LOG.info("output list.size::::::"+list.size());
